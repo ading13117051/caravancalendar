@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Generator Indonesia - A4 Format</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=BBH+Hegarty:wght@400&family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Oswald:wght@600&family=Poppins:wght@600&family=Bebas+Neue&family=Roboto:wght@700&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Caravancraft Calendar Generator</h1>
+            <p>Buat kalender A4 custom dengan 12 foto Anda (6 lembar, 2 bulan per lembar)</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Step 1: Upload Photos -->
+            <section class="upload-section">
+                <h2>Step 1: Upload 12 Foto</h2>
+                <div class="bulk-upload-container">
+                    <input type="file" id="bulkUpload" accept="image/*" multiple hidden>
+                    <button class="btn-bulk-upload" onclick="document.getElementById('bulkUpload').click()">Upload 12 Foto</button>
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9em;">Atau klik box di bawah untuk upload satu per satu. Drag & drop untuk ubah urutan.</p>
+                </div>
+                <div class="upload-grid">
+                    <div class="month-upload" data-month="0" draggable="true">
+                        <div class="upload-box" id="upload-0">
+                            <input type="file" id="file-0" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#1</span>
+                                <span class="month-name">Januari</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-0" style="display:none">
+                            <button class="remove-btn" id="remove-0" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="1" draggable="true">
+                        <div class="upload-box" id="upload-1">
+                            <input type="file" id="file-1" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#2</span>
+                                <span class="month-name">Februari</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-1" style="display:none">
+                            <button class="remove-btn" id="remove-1" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="2" draggable="true">
+                        <div class="upload-box" id="upload-2">
+                            <input type="file" id="file-2" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#3</span>
+                                <span class="month-name">Maret</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-2" style="display:none">
+                            <button class="remove-btn" id="remove-2" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="3" draggable="true">
+                        <div class="upload-box" id="upload-3">
+                            <input type="file" id="file-3" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#4</span>
+                                <span class="month-name">April</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-3" style="display:none">
+                            <button class="remove-btn" id="remove-3" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="4" draggable="true">
+                        <div class="upload-box" id="upload-4">
+                            <input type="file" id="file-4" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#5</span>
+                                <span class="month-name">Mei</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-4" style="display:none">
+                            <button class="remove-btn" id="remove-4" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="5" draggable="true">
+                        <div class="upload-box" id="upload-5">
+                            <input type="file" id="file-5" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#6</span>
+                                <span class="month-name">Juni</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-5" style="display:none">
+                            <button class="remove-btn" id="remove-5" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="6" draggable="true">
+                        <div class="upload-box" id="upload-6">
+                            <input type="file" id="file-6" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#7</span>
+                                <span class="month-name">Juli</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-6" style="display:none">
+                            <button class="remove-btn" id="remove-6" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="7" draggable="true">
+                        <div class="upload-box" id="upload-7">
+                            <input type="file" id="file-7" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#8</span>
+                                <span class="month-name">Agustus</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-7" style="display:none">
+                            <button class="remove-btn" id="remove-7" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="8" draggable="true">
+                        <div class="upload-box" id="upload-8">
+                            <input type="file" id="file-8" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#9</span>
+                                <span class="month-name">September</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-8" style="display:none">
+                            <button class="remove-btn" id="remove-8" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="9" draggable="true">
+                        <div class="upload-box" id="upload-9">
+                            <input type="file" id="file-9" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#10</span>
+                                <span class="month-name">Oktober</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-9" style="display:none">
+                            <button class="remove-btn" id="remove-9" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="10" draggable="true">
+                        <div class="upload-box" id="upload-10">
+                            <input type="file" id="file-10" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#11</span>
+                                <span class="month-name">November</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-10" style="display:none">
+                            <button class="remove-btn" id="remove-10" style="display:none">✕</button>
+                        </div>
+                    </div>
+                    <div class="month-upload" data-month="11" draggable="true">
+                        <div class="upload-box" id="upload-11">
+                            <input type="file" id="file-11" accept="image/*" hidden>
+                            <div class="upload-placeholder">
+                                <span class="month-number">#12</span>
+                                <span class="month-name">Desember</span>
+                                <span class="upload-icon">📷</span>
+                                <span>Klik untuk upload</span>
+                            </div>
+                            <img class="preview-img" id="preview-11" style="display:none">
+                            <button class="remove-btn" id="remove-11" style="display:none">✕</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Settings -->
+            <section class="settings-section">
+                <h2>Step 2: Pengaturan</h2>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="yearSelect">Tahun:</label>
+                        <select id="yearSelect">
+                            <option value="2025">2025</option>
+                            <option value="2026" selected>2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="showHolidays" checked>
+                            Tampilkan Tanggal Merah Indonesia
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label for="monthFontSelect">Font Nama Bulan:</label>
+                        <select id="monthFontSelect">
+                            <option value="BBH Hegarty">BBH Hegarty</option>
+                            <option value="Playfair Display">Playfair Display (Elegant)</option>
+                            <option value="Montserrat">Montserrat (Modern)</option>
+                            <option value="Oswald">Oswald (Bold)</option>
+                            <option value="Poppins">Poppins (Clean)</option>
+                            <option value="Bebas Neue">Bebas Neue (Strong)</option>
+                            <option value="Roboto">Roboto (Classic)</option>
+                            <option value="Inter">Inter (Minimalist)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="dateFontSelect">Font Angka Tanggal:</label>
+                        <select id="dateFontSelect">
+                            <option value="Montserrat">Montserrat (Modern)</option>
+                            <option value="Roboto">Roboto (Classic)</option>
+                            <option value="Poppins">Poppins (Clean)</option>
+                            <option value="Inter">Inter (Minimalist)</option>
+                            <option value="Oswald">Oswald (Bold)</option>
+                            <option value="BBH Hegarty">BBH Hegarty</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="colorPaletteSelect">Palet Warna:</label>
+                        <select id="colorPaletteSelect">
+                            <option value="classic">Classic Black & White</option>
+                            <option value="ocean">Ocean Blue</option>
+                            <option value="earth">Earth Brown</option>
+                            <option value="custom">Custom (Pilih Sendiri)</option>
+                        </select>
+                        <div id="customColorPickers" style="display: none;">
+                            <div class="color-picker-group">
+                                <div class="color-picker-item">
+                                    <label>Warna Teks:</label>
+                                    <input type="color" id="textColor" value="#000000">
+                                </div>
+                                <div class="color-picker-item">
+                                    <label>Warna Holiday:</label>
+                                    <input type="color" id="holidayColor" value="#FF0000">
+                                </div>
+                                <div class="color-picker-item">
+                                    <label>Warna Background:</label>
+                                    <input type="color" id="backgroundColor" value="#FFFFFF">
+                                </div>
+                                <div class="color-picker-item">
+                                    <label>Warna Header Hari:</label>
+                                    <input type="color" id="headerBgColor" value="#000000">
+                                </div>
+                                <div class="color-picker-item">
+                                    <label>Warna Bg Weekend:</label>
+                                    <input type="color" id="weekendBgColor" value="#f5f5f5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Dates Section -->
+                <div class="custom-dates-section">
+                    <h3>Tanggal Custom</h3>
+                    <p class="info-text-small">Tambahkan tanggal istimewa Anda (ulang tahun, anniversary, dll)</p>
+                    <div id="customDatesContainer">
+                        <!-- Custom date items will be added here -->
+                    </div>
+                    <button id="addCustomDateBtn" class="btn-add">+ Tambah Tanggal Custom</button>
+                </div>
+            </section>
+
+            <!-- Step 3: Generate -->
+            <section class="generate-section">
+                <h2>Step 3: Generate Kalender</h2>
+                <button id="generateBtn" class="btn-primary" disabled>
+                    Generate Kalender A4
+                </button>
+                <p class="info-text">Upload minimal 12 foto untuk mulai generate</p>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="preview-section" id="previewSection" style="display:none">
+                <h2>Preview Kalender</h2>
+                <div class="preview-controls">
+                    <button id="prevPage" class="btn-nav">← Prev</button>
+                    <span id="pageInfo">Lembar 1 dari 6</span>
+                    <button id="nextPage" class="btn-nav">Next →</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="calendarCanvas"></canvas>
+                </div>
+                <div class="download-section">
+                    <button id="downloadCurrentPage" class="btn-download">
+                        📄 Download Page (PNG)
+                    </button>
+                    <button id="downloadAllZip" class="btn-download">
+                        📦 Download All (ZIP)
+                    </button>
+                    <button id="downloadAllPages" class="btn-download">
+                        📝 Download All (PDF)
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="holidays-data.js"></script>
+    <script src="calendar-generator.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
